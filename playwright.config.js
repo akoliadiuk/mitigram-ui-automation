@@ -36,22 +36,28 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-      viewport: DEFAULT_VIEWPORT,
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: DEFAULT_VIEWPORT,
+      },
       screenshot: true,
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-      viewport: DEFAULT_VIEWPORT,
+      use: {
+        ...devices['Desktop Firefox'],
+        viewport: DEFAULT_VIEWPORT,
+      },
       screenshot: true,
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-      viewport: DEFAULT_VIEWPORT,
+      use: {
+        ...devices['Desktop Safari'],
+        viewport: DEFAULT_VIEWPORT,
+      },
       screenshot: true,
     },
   ],
