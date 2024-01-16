@@ -76,25 +76,27 @@ All new test cases should be prioritized according to the following rules:
 
 **Critical**
 
-> "Must-pass" tests - failure indicates severe impact on core functionality. Focus on tests covering business-critical features and user flows. Aim for high speed and stability of these tests.
+*"Must-pass" tests - failure indicates severe impact on core functionality. Focus on tests covering business-critical features and user flows. Aim for high speed and stability of these tests.*
 
 **High**
-> Important aspects of user experience - regressions cause disruption to key business logic. Prioritize tests used by a significant portion of users or affecting key workflows. Balance coverage and execution time for these tests
+
+*Important aspects of user experience - regressions cause disruption to key business logic. Prioritize tests used by a significant portion of users or affecting key workflows. Balance coverage and execution time for these tests.*
 
 **Medium**
 
-> Secondary features - impacting user convenience or specific tasks. Regressions might require future attention but won’t block the whole user flow. Include tests verifying edge cases and less-essential functionalities.
+*Secondary features - impacting user convenience or specific tasks. Regressions might require future attention but won’t block the whole user flow. Include tests verifying edge cases and less-essential functionalities.*
 
 **Low**
-> Exploratory tests or functionality rarely used - low impact on overall quality. Consider deferring these tests or running them less frequently. Focus on improving coverage, run time and stability of higher-priority tests first.
 
-> **Note: in order to run and maintain tests based on priority, mark them accordingly, with these tags in test description:**
+*Exploratory tests or functionality rarely used - low impact on overall quality. Consider deferring these tests or running them less frequently. Focus on improving coverage, run time and stability of higher-priority tests first.*
+
+:grey_exclamation:**Important: in order to run and maintain tests based on priority, mark them accordingly, with these tags in test description:**
 - `@critical`
 - `@high`
 - `@medium`
 - `@low`
 
-**Important:** priorities for the existing test should be reviewed on a regular basis and updated accordingly. Here are the top factors that tend to change so should be taken into account updating priority:
+**Note:** priorities for the existing test should be reviewed on a regular basis and updated accordingly. Here are the top factors that tend to change so should be taken into account updating priority:
 - **business risk** - how important the feature is for the end user, what is the risk for it to brake
 - **requirement volatility** - how frequently the requirement changes
 - **fault proneness** - how error-prone a requirement has been in previous versions of software
