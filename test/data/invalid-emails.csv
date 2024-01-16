@@ -1,0 +1,6 @@
+description,value
+Missing @ symbol, example.com
+Multiple @ symbols, test@@example.com
+Domain name missing TLD, example@
+IP address instead of domain, 123.456.78.90
+Empty local part, @example.com
