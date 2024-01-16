@@ -1,7 +1,7 @@
 import { defineConfig, devices, test as baseTest } from '@playwright/test';
 import 'dotenv/config';
 
-export const BASE_URL = 'https://www.mitigram.com';
+export const BASE_URL = 'https://mitigram.com';
 
 const DEFAULT_VIEWPORT = Object.freeze({
   width: 1920,
