@@ -14,16 +14,16 @@ export const test = baseTest.extend({
     await use(page);
   },
   homePageFixture: async ({ page }, use) => {
-    setUpPage(page, use, HomePage);
+    await setUpPage(page, use, HomePage);
   },
   loginPageFixture: async ({ page }, use) => {
-    setUpPage(page, use, LoginPage);
+    await setUpPage(page, use, LoginPage);
   },
   careersPageFixture: async ({ page }, use) => {
-    setUpPage(page, use, CareersPage);
+    await setUpPage(page, use, CareersPage);
   },
   forgotPasswordPageFixture: async ({ page }, use) => {
-    setUpPage(page, use, ForgotPasswordPage);
+    await setUpPage(page, use, ForgotPasswordPage);
   },
   user: {
     email: process.env.EMAIL,
@@ -32,7 +32,7 @@ export const test = baseTest.extend({
 });
 
 
-const setUpPage = async (page, useFn, classType) => {
-  const newPage = new classType(page);
+const setUpPage = async (page, useFn, ClassType) => {
+  const newPage = new ClassType(page);
   await useFn(newPage);
-}
+};

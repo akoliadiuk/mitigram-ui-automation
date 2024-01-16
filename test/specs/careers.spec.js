@@ -1,3 +1,4 @@
+/* eslint-disable playwright/expect-expect */
 import { expect } from '@playwright/test';
 import { test } from '../../pages/fixtures';
 
@@ -8,36 +9,36 @@ const PAGE_TITLE = 'Careers';
 let careersPage;
 
 test.beforeAll('Open Careers page', async ({ careersPageFixture }) => {
-    careersPage = await careersPageFixture.open();
+  careersPage = await careersPageFixture.open();
 });
 
 test.afterAll('Close Careers page', async () => {
-    await careersPage.close();
+  await careersPage.close();
 });
 
 test('has title @high', async () => {
-    await expect(careersPage.page).toHaveTitle(PAGE_TITLE);
+  await expect(careersPage.page).toHaveTitle(PAGE_TITLE);
 });
 
 test('has header logo @high', async () => {
-    await expect(careersPage.headerLogo).toBeVisible();
+  await expect(careersPage.headerLogo).toBeVisible();
 });
 
 test('has "Open Positions" button visible and clickable @high', async () => {
-    await expect(careersPage.openPositionsAnchor).toBeInViewport();
-    await expect(careersPage.openPositionsAnchor).toBeEnabled();
+  await expect(careersPage.openPositionsAnchor).toBeInViewport();
+  await expect(careersPage.openPositionsAnchor).toBeEnabled();
 });
 
 test('has footer section visible @high', async () => {
-    await expect(careersPage.footerContainer).toBeVisible();
+  await expect(careersPage.footerContainer).toBeVisible();
 });
 
 test.fixme('has footer section visible in viewport, once scrolled @high', async () => {});
 
 test('policy links are visible and clickable @high', async () => {
-    await careersPage.footerContainer.scrollIntoViewIfNeeded()
-    await expect(careersPage.privacyPolicyLink).toBeVisible();
-    await expect(careersPage.cookiePolicyLink).toBeVisible();
+  await careersPage.footerContainer.scrollIntoViewIfNeeded();
+  await expect(careersPage.privacyPolicyLink).toBeVisible();
+  await expect(careersPage.cookiePolicyLink).toBeVisible();
 });
 
 test.fixme('has footer address fields visible @high', async () => {});
@@ -47,10 +48,10 @@ test.fixme('has footer "Company" links visible and clickable @high', async () =>
 test.fixme('has footer social media links visible and clickable @high', async () => {});
 
 test('scrolls to open positions once "Open Positions" button clicked @high', async () => {
-    await careersPage.openPositionsAnchor.click();
-    await expect(careersPage.openPositionsFilters).toBeInViewport();
-    // TODO mock the response to have at least one position for sure
-    await expect(careersPage.openPositionsItem.first()).toBeInViewport();
+  await careersPage.openPositionsAnchor.click();
+  await expect(careersPage.openPositionsFilters).toBeInViewport();
+  // TODO mock the response to have at least one position for sure
+  await expect(careersPage.openPositionsItem.first()).toBeInViewport();
 });
 
 test.fixme('allows filtering positions by location @high', async () => {});

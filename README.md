@@ -23,6 +23,7 @@ The following tools were used in this project:
 - [Node.js](https://nodejs.org/en/)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Playwright](https://playwright.dev/)
+- [ESLint](https://eslint.org/)
 
 ## :white_check_mark: Prerequisites ##
 
