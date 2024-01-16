@@ -19,11 +19,30 @@ export default class Page {
 
   async open() {
     await this.page.goto(this.#fullUrl);
-    await this.page.waitForLoadState();
+    await this.waitForLoaded();
     return this;
   }
 
   async close() {
     await this.page.close();
+  }
+
+  async waitForLoaded(options = {}) {
+    await this.page.waitForURL(this.#fullUrl + '**', options);
+    return this;
+  }
+
+  async scrollToTheBottom() {
+    await this.page.waitForLoadState();
+    await this.page.keyboard.down('End');
+  }
+
+  async scrollOnePage() {
+    await this.page.waitForLoadState();
+    await this.page.keyboard.down('PageDown');
+  }
+
+  async goBack(options = {}) {
+    await this.page.goBack(options);
   }
 }

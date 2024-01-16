@@ -1,4 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices, test as baseTest } from '@playwright/test';
+import 'dotenv/config';
 
 export const BASE_URL = 'https://www.mitigram.com';
 
@@ -62,4 +63,3 @@ export default defineConfig({
     },
   ],
 });
-

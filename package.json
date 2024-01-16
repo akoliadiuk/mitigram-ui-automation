@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Test automation project to cover basic login and careers pages on Mitigram",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test --headed --project chromium",
+    "test-smoke": "playwright test --grep @smoke",
+    "test-headed": "playwright test --headed && playwright show-report",
+    "test-all": "playwright test"
+  },
   "keywords": [],
   "author": "Andrii Koliadiuk",
   "license": "ISC",
@@ -12,6 +17,7 @@
     "@types/node": "^20.11.2"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-playwright": "^0.21.0"
   }
