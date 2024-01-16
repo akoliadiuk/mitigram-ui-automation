@@ -2,8 +2,6 @@ import { expect } from '@playwright/test';
 import { test } from '../../pages/fixtures';
 import HomePage from '../../pages/HomePage';
 
-test.describe.configure({ mode: 'serial' });
-
 let homePage;
 let loginPage;
 let forgotPasswordPage;
@@ -53,6 +51,6 @@ test('opens "Contact us" link in a new tab @high', async () => {
   await loginPage.open();
   // eslint-disable-next-line require-await
   newTabHomePage = await loginPage.openInNewTab(async () => loginPage.contactUsLink.click(),
-      loginPage.page.context(), HomePage);
+    loginPage.page.context(), HomePage);
   await expect(newTabHomePage.page).toHaveURL(newTabHomePage.url + CONTACT_ANCHOR_URL_PART);
 });

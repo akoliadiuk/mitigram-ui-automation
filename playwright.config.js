@@ -14,7 +14,7 @@ const DEFAULT_VIEWPORT = Object.freeze({
 export default defineConfig({
   testDir: './test/specs',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -22,7 +22,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 3 : 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [process.env.CI ? ['list'] : ['list', 'html']],
+  reporter: process.env.CI ? [['list']] : [['list'], ['html']],
   /* Shared settings for all the projects below.
   See https://playwright.dev/docs/api/class-testoptions. */
   use: {
