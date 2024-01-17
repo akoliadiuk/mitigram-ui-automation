@@ -1,7 +1,10 @@
 import Page from './Page';
+import FooterComponent from './components/FooterComponent';
+import HeaderMenuComponent from './components/HeaderMenuComponent';
 
 export default class HomePage extends Page {
-  logInButton = this.page.locator('//*[@id = "g-navigation"]//a[text() = "Log in"]');
+  headerMenu = new HeaderMenuComponent(this.page);
+  footer = new FooterComponent(this.page);
 
   constructor(page) {
     super(page, '/');

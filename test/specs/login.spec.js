@@ -6,6 +6,7 @@ import { LOGIN_VALIDATION_ERRORS } from '../data/errors';
 import fs from 'fs';
 import path from 'path';
 import { parse } from 'csv-parse/sync';
+import { COOKIES_POLICY_TEXT } from '../data/labels';
 
 const ivalidEmails = parse(fs.readFileSync(path.join(__dirname, '../data/invalid-emails.csv')),
   { columns: true, relax_quotes: true });
@@ -36,15 +37,24 @@ test('has header logo @critical', async () => {
 });
 
 test('has login form inputs ready to use @critical', async () => {
+  await expect(loginPage.emailLabel).toBeInViewport();
+  await expect(loginPage.passwordLabel).toBeInViewport();
   for (const field of [loginPage.emailField, loginPage.passwordField]) {
     await expect(field).toBeInViewport();
     await expect(field).toBeEditable();
     await expect(field).toBeEmpty();
   }
+});
+
+test('has login form buttons and links ready to use @critical', async () => {
   for (const button of [loginPage.loginButton, loginPage.forgotPasswordLink]) {
     await expect(button).toBeInViewport();
     await expect(button).toBeEnabled();
   }
+});
+
+test('displays cookies policy @critical', async () => {
+  expect((await loginPage.cookiesPolicyLabel.innerText()).trim()).toEqual(COOKIES_POLICY_TEXT);
 });
 
 test('requires email @critical', async () => {
@@ -85,13 +95,7 @@ test('requires email to be valid: @high', async () => {
 
 test.fixme('has app store badges visible and clickable @high', async () => { });
 
-test.fixme('displays other UI elements @medium', async () => { });
-
-test.fixme('has correct hover state for buttons and links @medium', async () => { });
-
 test.fixme('handles window resizing so that all UI elements are reachable @medium',
   async () => { });
 
 test.fixme('handles different error states when API call fails @medium', async () => { });
-
-test.fixme('displays loading state before data loads @low', async () => { });

@@ -14,29 +14,37 @@ test.afterAll('Close Careers page', async () => {
   await careersPage.close();
 });
 
-test('has title @high', async () => {
+test('has title @critical', async () => {
   await expect(careersPage.page).toHaveTitle(PAGE_TITLE);
 });
 
-test('has header logo @high', async () => {
+test('has header logo @critical', async () => {
   await expect(careersPage.headerLogo).toBeVisible();
 });
 
-test('has "Open Positions" button visible and clickable @high', async () => {
+test('has "Open Positions" button visible and clickable @critical', async () => {
   await expect(careersPage.openPositionsAnchor).toBeInViewport();
   await expect(careersPage.openPositionsAnchor).toBeEnabled();
 });
 
-test('has footer section visible @high', async () => {
-  await expect(careersPage.footerContainer).toBeVisible();
+test('has header section visible @critical', async () => {
+  await expect(careersPage.headerMenu.headerContainer).toBeInViewport();
 });
+
+test('has footer section visible @critical', async () => {
+  await expect(careersPage.footer.footerContainer).toBeVisible();
+});
+
+test.fixme('navigates "Request Demo" link @high', async () => { });
+test.fixme('navigates "Log In" link @high', async () => { });
+test.fixme('navigates other links from header @high', async () => { });
 
 test.fixme('has footer section visible in viewport, once scrolled @high', async () => { });
 
 test('policy links are visible and clickable @high', async () => {
-  await careersPage.footerContainer.scrollIntoViewIfNeeded();
-  await expect(careersPage.privacyPolicyLink).toBeVisible();
-  await expect(careersPage.cookiePolicyLink).toBeVisible();
+  await careersPage.footer.footerContainer.scrollIntoViewIfNeeded();
+  await expect(careersPage.footer.privacyPolicyLink).toBeVisible();
+  await expect(careersPage.footer.cookiePolicyLink).toBeVisible();
 });
 
 test('scrolls to open positions once "Open Positions" button clicked @high', async () => {
@@ -45,6 +53,12 @@ test('scrolls to open positions once "Open Positions" button clicked @high', asy
   // TODO mock the response to have at least one position for sure
   await expect(careersPage.openPositionsItem.first()).toBeInViewport();
 });
+
+test.fixme('expands position accordion on click @high', async () => { });
+test.fixme('collapses position accordion on click @high', async () => { });
+test.fixme('collapses position accordion once another position is clicked @high', async () => { });
+test.fixme('navigates "Learn more" link @high', async () => { });
+test.fixme('navigates "Apply for this position" link @high', async () => { });
 
 test.fixme('has footer address fields visible @high', async () => { });
 test.fixme('has footer "Solutions", "Platform" and "Company" links visible and clickable @high',

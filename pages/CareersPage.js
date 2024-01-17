@@ -1,11 +1,11 @@
 import Page from './Page';
+import FooterComponent from './components/FooterComponent';
+import HeaderMenuComponent from './components/HeaderMenuComponent';
 
 export default class CareersPage extends Page {
+  headerMenu = new HeaderMenuComponent(this.page);
+  footer = new FooterComponent(this.page);
   #openPositionsContainer = this.page.locator('#g-open-positions');
-  footerContainer = this.page.locator('#g-footer');
-  policiesText = this.footerContainer.locator('p.footerlink');
-  privacyPolicyLink = this.footerContainer.locator('a[href="/privacy-policy"]');
-  cookiePolicyLink = this.footerContainer.locator('a[href="/cookie-policy"]');
   openPositionsAnchor = this.page.locator('//a[@href="#open-positions"][text() = ' +
     '"Open positions"]');
   openPositionsFilters = this.#openPositionsContainer.locator('ul.jl-subnav');

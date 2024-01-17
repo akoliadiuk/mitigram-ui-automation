@@ -1,3 +1,4 @@
+/* eslint-disable playwright/expect-expect */
 import { expect } from '@playwright/test';
 import { test } from '../../pages/fixtures';
 import HomePage from '../../pages/HomePage';
@@ -23,7 +24,7 @@ test.afterAll('Close page', async () => {
 
 test('navigates to Login page from Home page @critical', async () => {
   await homePage.open();
-  await homePage.logInButton.click();
+  await homePage.headerMenu.logInButton.click();
   await expect(loginPage.page).toHaveURL(loginPage.url + RETURN_URL_PART);
 });
 
@@ -54,3 +55,6 @@ test('opens "Contact us" link in a new tab @high', async () => {
     loginPage.page.context(), HomePage);
   await expect(newTabHomePage.page).toHaveURL(newTabHomePage.url + CONTACT_ANCHOR_URL_PART);
 });
+
+test('follows app store link and back to login page @high', async () => {});
+test('follows play market link and back to login page @high', async () => {});
