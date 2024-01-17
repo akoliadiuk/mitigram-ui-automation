@@ -52,10 +52,13 @@ $ npm install
 $ npm run test
 
 # Run all tests in all supported browsers headless
-$ npm run test-all
+$ npm run test-regression
 
 # Run smoke suite which includes @crittial and @high priority test cases
 $ npm run test-smoke
+
+# Generate report after test run
+$ npm run report
 ```
 Alternatively, you can run `npx playwright test` with a variety of different [options](https://playwright.dev/docs/test-cli) to configure test run for your needs.
 
