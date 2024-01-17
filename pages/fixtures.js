@@ -4,6 +4,10 @@ import CareersPage from './CareersPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
 import HomePage from './HomePage';
 
+if (!(process.env.EMAIL && process.env.PASSWORD)) {
+  throw new Error('Email and Password env variables were not set! Please, fill the ".env" file!');
+}
+
 export const test = baseTest.extend({
   context: async ({ browser }, use) => {
     const context = await browser.newContext();

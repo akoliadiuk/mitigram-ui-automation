@@ -43,7 +43,12 @@ $ npm i
 
 # Install dependencies
 $ npm install
+
+# Create your own '.env' file
+$ cp example.env .env
 ```
+
+Next, fill .env file with actual credentials or leave as is to use dummy values. **DO NOT commit .env file to VCS.**
 
 ## :white_check_mark: Test ##
 
@@ -54,7 +59,7 @@ $ npm run test
 # Run all tests in all supported browsers headless
 $ npm run test-regression
 
-# Run smoke suite which includes @crittial and @high priority test cases
+# Run smoke suite which includes @critical and @high priority test cases
 $ npm run test-smoke
 
 # Generate report after test run
@@ -118,7 +123,7 @@ This project is under license from MIT. For more details, see the [LICENSE](LICE
 
 
 
-Made with :heart: by <a href="https://github.com/akoliadiuk" target="_blank">Andrii Kolaiduik</a>
+Made with :heart: by <a href="https://github.com/akoliadiuk" target="_blank">Andrii Koliadiuk</a>
 &#xa0;
 
 <a href="#top">:arrow_up: Back to top</a>

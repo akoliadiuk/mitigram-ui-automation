@@ -1,8 +1,8 @@
 import Page from './Page';
 
 export default class ForgotPasswordPage extends Page {
-  #forgotPasswordform = this.page.locator('#login');
-  alreadyHaveAccountLink = this.#forgotPasswordform.locator('a[href="/Account/Login"]');
+  #forgotPasswordForm = this.page.locator('#login');
+  alreadyHaveAccountLink = this.#forgotPasswordForm.locator('a[href="/Account/Login"]');
 
   constructor(page) {
     super(page, 'https://marketplace.mitigram.com/Account/ForgotPassword');
